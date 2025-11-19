@@ -1,0 +1,34 @@
+[package]
+name = "rust-dev-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Web framework - highly performant and production-ready
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["fs", "trace", "cors", "compression-gzip"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Logging - structured logging for production
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Configuration
+dotenvy = "0.15"
+
+# Graceful shutdown
+tokio-util = "0.7"
+
+[dev-dependencies]
+reqwest = "0.11"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
