@@ -1,19 +1,14 @@
 use axum::{
-    extract::State,
-    http::{StatusCode, header},
-    response::{IntoResponse, Response},
-    routing::{get, post},
-    Json, Router,
+    routing::{get, post}, Router,
 };
-use serde::{Deserialize, Serialize};
-use std::{net::SocketAddr, sync::Arc, time::Duration};
+use std::{net::SocketAddr, sync::Arc};
 use tower_http::{
     cors::{Any, CorsLayer},
     services::ServeDir,
     trace::TraceLayer,
     compression::CompressionLayer,
 };
-use tracing::{info, warn, error};
+use tracing::{info, warn};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 mod config;

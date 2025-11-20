@@ -5,6 +5,7 @@ pub struct Config {
     pub port: u16,
     pub static_dir: String,
     pub environment: String,
+    #[allow(dead_code)]
     pub log_level: String,
 }
 
