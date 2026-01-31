@@ -19,7 +19,7 @@ impl Config {
                 .parse()
                 .expect("PORT must be a valid number"),
             static_dir: env::var("STATIC_DIR")
-                .unwrap_or_else(|_| "./public".to_string()),
+                .unwrap_or_else(|_| "/Users/scarecro/Projects".to_string()),
             environment: env::var("ENVIRONMENT")
                 .unwrap_or_else(|_| "development".to_string()),
             log_level: env::var("LOG_LEVEL")
